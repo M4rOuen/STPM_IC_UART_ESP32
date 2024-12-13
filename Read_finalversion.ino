@@ -1,4 +1,3 @@
-//MAROUEN FROM IO
 #include "STPM3X.h"
 
 // Pins for STPM UART Connection
@@ -7,7 +6,7 @@ const int STPM_SYN = 14;
 const int STPM_RES = 12;
 
 // Define the UART for communication (you can choose different UARTs like UART1 or UART2)
-#define STPM_UART Serial1 // Using UART1, you can also use Serial2 if needed
+#define STPM_UART Serial2 // Using UART1, you can also use Serial2 if needed
 
 // STPM Object
 STPM stpm3x(STPM_RES, STPM_CS, STPM_SYN, STPM_UART);
@@ -51,8 +50,13 @@ void loop() {
     float momentaryactivepower = stpm3x.readMomentaryActivePower(1);
     float momentaryfundamentalpower = stpm3x.readMomentaryFundamentalPower(1);
     float totalapparentenergy = stpm3x.readTotalApparentEnergy();
+    
+    // Calculate Power Factor (PF)
+    float powerFactor = 0.0;
+    if (apparentrmspower != 0) {
+      powerFactor = activepower / apparentrmspower;
+    }
 
-    // Print the results to the Serial Monitor
     Serial.printf("Voltage: %.2fV\n", voltage);
     Serial.printf("RMS Voltage: %.2fV\n", rmsvoltage);
     Serial.printf("Current: %.2fmA\n", current);
@@ -70,6 +74,7 @@ void loop() {
     Serial.printf("Apparent RMS Power: %.2fVA\n", apparentrmspower);  
     Serial.printf("Apparent Vectorial Power: %.2fVA\n", readApparentVectorialPower);  
     Serial.printf("Momentary Active Power: %.2fVA\n", momentaryactivepower);  
-    Serial.printf("Momentary Fundamental Power: %.2fVA\n", momentaryfundamentalpower);  
+    Serial.printf("Momentary Fundamental Power: %.2fVA\n", momentaryfundamentalpower);
+    Serial.printf("Power Factor: %.2f\n", powerFactor);
   }
 }
