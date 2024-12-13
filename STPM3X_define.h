@@ -381,12 +381,12 @@ typedef struct {
 #define C1_RMS_Data_Address 0x48
 #define C2_RMS_Data_Address 0x4A
 #define SAG1_SWV1_TIME_Address 0x4C;
-#define C1PHA_SWC1_TIME_Address 0x4E;
-#define SAG2_SWV2_TIME_Address 0x50;
-#define C2PHA_SWC2_TIME_Address 0x52;
+#define C1PHA_SWC1_TIME_Address 0x4E
+#define SAG2_SWV2_TIME_Address 0x50
+#define C2PHA_SWC2_TIME_Address 0x52
 #define PH1_Active_Energy_Address 0x54
 #define PH1_Fundamental_Energy_Address 0x56
-#define PH1_Reactive_Energy_Address 0x58;
+#define PH1_Reactive_Energy_Address 0x58
 #define PH1_Apparent_Energy_Address 0x5A
 #define PH1_Active_Power_Address 0x5C
 #define PH1_Fundamental_Power_Address 0x5E
