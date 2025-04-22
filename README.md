@@ -14,7 +14,7 @@ independent temperature compensation, a low
 drop voltage regulator and DC buffers. The digital
 section consists of digital filtering stage, a
 hardwired DSP, DFE to the input and a serial
-communication interface (UART or SPI). The
+communication interface (UART). The
 STPM3x is fully configurable and allows a fast
 digital system calibration in a single point over the
 entire current dynamic range.
